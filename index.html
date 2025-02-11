@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="description"
+      content="Official Website for Diffusion Forcing Transformer: History-Guided Video Diffusion" />
+    <meta
+      name="keywords"
+      content="Diffusion Forcing, History, Guidance, Video, Diffusion" />
+    <meta
+      property="og:image"
+      content="https://boyuan.space/history-guided-df/static/images/teaser.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>History-Guided Video Diffusion</title>
+
+    <!--TWITTER TODO-->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="History-Guided Video Diffusion" />
+    <meta
+      name="twitter:description"
+      content="official website for History-Guided Video Diffusion and Diffusion Forcing Transformer" />
+    <meta
+      name="twitter:image"
+      content="https://boyuan.space/history-guided-df/static/images/teaser.png" />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+      rel="stylesheet" />
+
+    <link rel="stylesheet" href="./static/css/bulma.min.css" />
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css" />
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css" />
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" />
+    <link rel="stylesheet" href="./static/css/index.css" />
+    <link rel="icon" href="./static/images/favicon.svg" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
+  </head>
+
+  <!-- Google tag (gtag.js) -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-2VDTE2MJMK"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "G-2VDTE2MJMK");
+  </script>
+
+  <body>
+    <section class="hero">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered">
+            <div class="column has-text-centered">
+              <h1 class="title is-1 publication-title">
+                History-Guided Video Diffusion
+              </h1>
+              <div class="is-size-5 publication-authors">
+                <span class="author-block">
+                  <a href="https://kiwhan.dev/">Kiwhan Song</a
+                  ><sup>1*</sup>,</span
+                >
+                <span class="author-block">
+                  <a href="https://boyuan.space/">Boyuan Chen</a
+                  ><sup>1*</sup>,</span
+                >
+                <span class="author-block">
+                  <a href="https://msimchowitz.github.io/">Max Simchowitz</a
+                  ><sup>2</sup>,</span
+                >
+                <span class="author-block">
+                  <a href="https://yilundu.github.io/">Yilun Du</a
+                  ><sup>3</sup>,</span
+                >
+                <span class="author-block">
+                  <a href="https://groups.csail.mit.edu/locomotion/russt.html"
+                    >Russ Tedrake</a
+                  ><sup>1</sup>,
+                </span>
+                <span class="author-block">
+                  <a href="https://www.vincentsitzmann.com/">Vincent Sitzmann</a
+                  ><sup>1</sup>
+                </span>
+              </div>
+              <div><sup>*</sup> Equal Contribution</div>
+
+              <br />
+              <div class="is-size-5 publication-authors">
+                <ul class="affiliation-list">
+                  <li class="affiliation">
+                    <img
+                      src="./static/images/mit.jpg"
+                      alt="MIT Logo"
+                      class="logo" />
+                    <span class="author-block"><sup>1</sup>MIT</span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <img
+                      src="./static/images/cmu.jpg"
+                      alt="CMU Logo"
+                      class="logo" />
+                    <span class="author-block"><sup>2</sup>CMU</span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <img
+                      src="./static/images/harvard.jpg"
+                      alt="harvard Logo"
+                      class="logo" />
+                    <span class="author-block"><sup>3</sup>Harvard</span>
+                  </li>
+                </ul>
+              </div>
+              <br />
+              <div class="column has-text-centered">
+                <div class="publication-links">
+                  <!-- PDF Link. -->
+                  <span class="link-block">
+                    <a
+                      href="https://arxiv.org/abs/2502.06764"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fas fa-file-pdf"></i>
+                      </span>
+                      <span>Paper</span>
+                    </a>
+                  </span>
+                  <!-- Video Link. -->
+                  <!-- <span class="link-block">
+                    <a
+                      href="https://youtu.be/CNgwS8B7UvE"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fab fa-youtube"></i>
+                      </span>
+                      <span>Talk Video</span>
+                    </a>
+                  </span> -->
+                  <span class="link-block">
+                    <a
+                      href="https://github.com/kwsong0113/diffusion-forcing-transformer"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fas fa-code"></i>
+                      </span>
+                      <span>Code</span>
+                    </a>
+                  </span>
+                  <span class="link-block">
+                    <a
+                      href="https://huggingface.co/spaces/kiwhansong/diffusion-forcing-transformer"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fas fa-play"></i>
+                      </span>
+                      <span>Online Demo</span>
+                    </a>
+                  </span>
+                  <!-- <span class="link-block">
+                    <a
+                      href="todo"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fab fa-twitter"></i>
+                      </span>
+                      <span>Tweet</span>
+                    </a>
+                  </span> -->
+                </div>
+              </div>
+              <div class="is-size-5 mt-3">
+                <span class="has-text-weight-bold">TL;DR:</span> Diffuse long
+                videos by performing guidance over different histories, enabled
+                by Diffusion Forcing Transformer, a simple finetunable add-on to
+                any existing diffusion sequence models.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container is-max-desktop">
+        <!-- Abstract. -->
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Abstract</h2>
+            <div class="content has-text-justified">
+              Classifier-free guidance (CFG) is a key technique for improving
+              conditional generation in diffusion models, enabling more accurate
+              control while enhancing sample quality. It is natural to extend
+              this technique to video diffusion, which generates video
+              conditioned on a variable number of context frames, collectively
+              referred to as history. However, we find two key challenges to
+              guiding with variable-length history: architectures that only
+              support fixed-size conditioning, and the empirical observation
+              that CFG-style history dropout performs poorly. To address this,
+              we propose the Diffusion Forcing Transformer (DFoT), a video
+              diffusion architecture and theoretically grounded training
+              objective that jointly enable conditioning on a flexible number of
+              history frames. We then introduce History Guidance, a family of
+              guidance methods uniquely enabled by DFoT. We show that its
+              simplest form, vanilla history guidance, already significantly
+              improves video generation quality and temporal consistency. A more
+              advanced method, history guidance across time and frequency
+              further enhances motion dynamics, enables compositional
+              generalization to out-of-distribution history, and can stably roll
+              out extremely long videos.
+              <!--/ Abstract. -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="hero is-light is-small">
+      <div class="hero-body">
+        <div class="container">
+          <div id="results-carousel" class="carousel results-carousel">
+            <div class="item item-steve">
+              <video
+                poster=""
+                id="re10k_1"
+                autoplay
+                controls
+                muted
+                loop
+                playsinline
+                height="100%"
+                loading="lazy">
+                <source src="./static/videos/slides/1.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="item item-chair-tp">
+              <video
+                poster=""
+                id="re10k_2"
+                autoplay
+                controls
+                muted
+                loop
+                playsinline
+                height="100%"
+                loading="lazy">
+                <source src="./static/videos/slides/2.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="item item-shiba">
+              <video
+                poster=""
+                id="re10k_3"
+                autoplay
+                controls
+                muted
+                loop
+                playsinline
+                height="100%"
+                loading="lazy">
+                <source src="./static/videos/slides/3.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="item item-fullbody">
+              <video
+                poster=""
+                id="re10k_4"
+                autoplay
+                controls
+                muted
+                loop
+                playsinline
+                height="100%"
+                loading="lazy">
+                <source src="./static/videos/slides/4.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="item item-blueshirt">
+              <video
+                poster=""
+                id="re10k_5"
+                autoplay
+                controls
+                muted
+                loop
+                playsinline
+                height="100%"
+                loading="lazy">
+                <source src="./static/videos/slides/5.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="item item-mask">
+              <video
+                poster=""
+                id="re10k_6"
+                autoplay
+                controls
+                muted
+                loop
+                playsinline
+                height="100%"
+                loading="lazy">
+                <source src="./static/videos/slides/6.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="item item-coffee">
+              <video
+                poster=""
+                id="re10k_7"
+                autoplay
+                controls
+                muted
+                loop
+                playsinline
+                height="100%"
+                loading="lazy">
+                <source src="./static/videos/slides/7.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="item item-toby">
+              <video
+                poster=""
+                id="re10k_8"
+                autoplay
+                controls
+                muted
+                loop
+                playsinline
+                height="100%"
+                loading="lazy">
+                <source src="./static/videos/slides/8.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="item item-toby">
+              <video
+                poster=""
+                id="re10k_9"
+                autoplay
+                controls
+                muted
+                loop
+                playsinline
+                height="100%"
+                loading="lazy">
+                <source src="./static/videos/slides/9.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </div>
+        </div>
+        <div
+          class="columns is-centered has-text-centered"
+          style="margin-top: 0.5rem">
+          <div class="column is-three-quarters">
+            <div class="content has-text-centered">
+              <p>
+                Five samples generated by Diffusion Forcing Transformer from a
+                single image. The model is trained only on the RealEstate10K
+                dataset but can roll out much longer than prior state-of-the-art
+                methods
+                <a href="https://4d-diffusion.github.io/">[1]</a
+                ><a href="https://haian-jin.github.io/projects/LVSM/">[2]</a>.
+                We highlight samples with challenging motions (e.g. zooming out,
+                large rotation).
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column">
+            <div class="content">
+              <h2 class="title is-3">Ultra Long Video Generation</h2>
+              <p>
+                Diffusion Forcing Transformer (DFoT) along with
+                <i>History Guidance Across Time and Frequency</i> can stably
+                rollout extremeley long videos, such as the following 862-frame
+                video from a single test image from the RealEstate10K dataset.
+              </p>
+              <div id="main-video-container" class="main-video-wrapper">
+                <video
+                  id="main-video"
+                  autoplay
+                  muted
+                  controls
+                  loop
+                  playsinline
+                  loading="lazy"
+                  class="main-video">
+                  <source
+                    src="static/videos/long_rollout_0.mp4"
+                    type="video/mp4" />
+                </video>
+              </div>
+            </div>
+          </div>
+          <div class="column">
+            <h2 class="title is-3">Compositionality and Flexibility</h2>
+            <div class="columns is-centered">
+              <div class="column content">
+                <p>
+                  DFoT learns the distribution of all sub-sequences than just
+                  the full sequence, allowing conditioning on any length
+                  history. <i>Temporal History Guidance</i> composes long
+                  horizon behavior and local reactive behavior for new
+                  capabilities.
+                </p>
+                <video
+                  id="robot-video"
+                  autoplay
+                  muted
+                  loop
+                  controls
+                  playsinline
+                  width="100%"
+                  height="auto"
+                  loading="lazy">
+                  <source src="static/videos/robot.mp4" type="video/mp4" />
+                </video>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mini player that becomes visible on scroll -->
+    <div id="mini-player" class="mini-video-wrapper">
+      <button class="mini-player-close">×</button>
+      <div class="mini-player-text">
+        We can rollout so long that this generated video is still playing!
+      </div>
+      <video
+        id="mini-video"
+        muted
+        loop
+        playsinline
+        class="mini-video"
+        loading="lazy">
+        <source src="static/videos/long_rollout_0.mp4" type="video/mp4" />
+      </video>
+    </div>
+
+    <section class="section">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-full-width has-text-justified">
+            <h2 class="title is-3 has-text-centered">
+              Diffusion Forcing Transformer
+            </h2>
+            <div class="content has-text-justified">
+              <p>
+                Can we train a single diffusion model that can perform
+                conditional diffusion with different portions of history -
+                variable lengths, subsets of frames, and even different
+                image-domain frequencies? Built on
+                <a href="https://boyuan.space/diffusion-forcing/">prior works</a
+                >, Diffusion Forcing Transformer (DFoT) trains video diffusion
+                with different noise levels per frame, leveraging noise as
+                masking to model distributions at sub-sequence level. This
+                achieves flexible history conditioning without changes to
+                existing architectures. One can easily
+                <strong>
+                  finetune any existing video models into a Diffusion Forcing
+                  Transformer</strong
+                >
+                to leverage history guidance and significantly boost generation
+                quality!
+              </p>
+            </div>
+            <br />
+            <div class="content has-text-centered">
+              <img
+                src="./static/images/architecture.webp"
+                class="inline-figure-six"
+                alt="Abilities of teacher forcing, full-sequence diffusion, and Diffusion Forcing." />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-full-width has-text-justified">
+            <h2 class="title is-3 has-text-centered">History Guidance</h2>
+            <div class="content has-text-justified">
+              <p>
+                History Guidance is a family of history-conditioned guidance
+                methods achieved by composing various history-conditioned
+                scores. With the Diffusion Forcing Transformer, obtaining
+                different conditional scores is as simple as masking different
+                portions of the history with noise. We propose several schemes:
+                vanilla history guidance, which enhances consistency; temporal
+                history guidance, which improves compositionality; and frequency
+                guidance, which increases the degree of dynamism.
+              </p>
+            </div>
+            <br />
+            <div class="content has-text-centered">
+              <img
+                src="./static/images/sampling.webp"
+                class="inline-figure-six"
+                alt="Abilities of teacher forcing, full-sequence diffusion, and Diffusion Forcing." />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="hr"></div>
+
+    <section class="section">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-full-width has-text-justified">
+            <h2 class="title is-3 has-text-centered">
+              Qualitative Comparisons
+            </h2>
+            <div class="content has-text-justified">
+              <p>
+                On standard benchmarks, the
+                <strong>Diffusion Forcing Transformer (DFoT)</strong> not only
+                matches or surpasses industry closed-source models trained with
+                large-scale compute but also enables long rollouts far beyond
+                the test lengths of these datasets. We can perform rollouts of
+                60 frames on the Kinetics-600 dataset, compared to the previous
+                benchmark of 11 frames, and at least 276 frames on the
+                RealEstate10K dataset, significantly exceeding the previous
+                limit of around 16 frames.
+              </p>
+              <p>
+                The figures below present qualitative samples generated by
+                different diffusion methods using the same architecture.
+                <strong>Standard Diffusion</strong> refers to the conditional
+                diffusion baseline trained for a specific test history length
+                (in contrast to DFoT's support for any history length).
+                <strong>Binary Dropout</strong> is an ablative baseline that
+                drops out frames during training to allow for flexible history
+                conditioning. <strong>Full-sequence Diffusion</strong> is the
+                traditional video diffusion method from
+                <a href="https://arxiv.org/abs/2204.03458">Ho et al. 2022</a>,
+                which uses reconstruction guidance to enable flexible
+                conditioning.
+              </p>
+            </div>
+            <div class="publication-video">
+              <video
+                id="kinetics_0"
+                autoplay
+                muted
+                loop
+                playsinline
+                loading="lazy"
+                width="100%"
+                height="auto"
+                style="aspect-ratio: 6/5">
+                <source src="static/videos/kinetics_0.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="content has-text-centered">
+              <p class="is-size-6">
+                Samples on Kinetics-600 dataset with a challenging setting of
+                predicting next 60 frames given 5 initial frames.
+              </p>
+              <hr />
+            </div>
+            <div class="publication-video">
+              <video
+                id="kinetics_1"
+                autoplay
+                muted
+                loop
+                playsinline
+                loading="lazy"
+                width="100%"
+                height="auto"
+                style="aspect-ratio: 6/5">
+                <source src="static/videos/kinetics_1.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="content has-text-centered">
+              <p class="is-size-6">
+                More samples on Kinetics-600 dataset with a challenging setting
+                of predicting next 60 frames given 5 initial frames.
+              </p>
+              <hr />
+            </div>
+            <div class="publication-video" style="padding-bottom: 60%">
+              <video
+                id="re10k_0"
+                autoplay
+                muted
+                loop
+                playsinline
+                loading="lazy"
+                width="100%"
+                height="auto"
+                style="aspect-ratio: 5/3">
+                <source src="static/videos/re10k_0.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="content has-text-centered">
+              <p class="is-size-6">
+                Samples on RealEstate10K dataset conditioned on the first frame
+                and a camera pose sequence. This task is usually considered much
+                harder than interpolating between two frames, the traditional
+                video generation task on this dataset. In addition, we
+                deliberately choose challenging motions such as big rotations or
+                zooming out, and a big length of 276 frames.
+              </p>
+              <hr />
+            </div>
+            <div class="publication-video" style="padding-bottom: 60%">
+              <video
+                id="re10k_1"
+                autoplay
+                muted
+                loop
+                playsinline
+                loading="lazy"
+                width="100%"
+                height="auto"
+                style="aspect-ratio: 5/3">
+                <source src="static/videos/re10k_1.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="content has-text-centered">
+              <p class="is-size-6">
+                More samples on RealEstate10K dataset conditioned on the first
+                frame and a camera pose sequence. This task is usually
+                considered much harder than interpolating between two frames,
+                the traditional video generation task on this dataset. In
+                addition, we deliberately choose challenging motions such as big
+                rotations or zooming out, and a big length of 276 frames.
+              </p>
+              <hr />
+            </div>
+
+            <!-- <div class="content has-text-centered">
+              <img
+                src="./static/images/minecraft_df_1.png"
+                class="inline-figure-six"
+                height="auto"
+                width="100%" />
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="BibTeX">
+      <div class="container is-max-desktop content">
+        <h2 class="title has-text-centered">BibTeX</h2>
+        <pre><code>
+@misc{song2025historyguidedvideodiffusion,
+  title={History-Guided Video Diffusion}, 
+  author={Kiwhan Song and Boyuan Chen and Max Simchowitz and Yilun Du and Russ Tedrake and Vincent Sitzmann},
+  year={2025},
+  eprint={2502.06764},
+  archivePrefix={arXiv},
+  primaryClass={cs.LG},
+  url={https://arxiv.org/abs/2502.06764}, 
+}</code></pre>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="content has-text-centered">
+          <a class="icon-link" href="https://arxiv.org/abs/2502.06764">
+            <i class="fas fa-file-pdf"></i>
+          </a>
+          <a
+            class="icon-link"
+            href="https://github.com/kwsong0113/diffusion-forcing-transformer"
+            class="external-link"
+            disabled>
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+        <div class="columns is-centered">
+          <div class="column is-8">
+            <div class="content">
+              <p>
+                Website template is modified from
+                <a href="https://github.com/nerfies/nerfies.github.io"
+                  >nerfies</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
