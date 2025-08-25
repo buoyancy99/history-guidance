@@ -307,3 +307,29 @@ body {
   opacity: 1;
   transform: translateY(0);
 }
+
+.has-ribbon {
+  position: relative;
+}
+
+.publication-title-wrapper {
+  display: inline-block;
+}
+
+.icml-ribbon {
+  position: absolute;
+  right: -200px;
+  top: -5px;
+  transform: rotate(30deg);
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  pointer-events: none;
+}
+
+@media (max-width: 480px) {
+  .icml-ribbon {
+    right: 0;
+    top: -12px;
+    transform: rotate(30deg);
+  }
+}
